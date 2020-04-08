@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: result
+  name: result
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result
+  template:
+    metadata:
+      labels:
+        app: result
+    spec:
+      containers:
+      - image: dockersamples/examplevotingapp_result:before
+        name: result
+        env:
+          - name: POSTGRES_USER
+            value: postgre
+          - name: POSTGRES_PASSWORD
+            value: postgres
+          - name: PGHOST
+            value: db
+          - name: POSTGRES_PORT
+            value: '5432'
+          - name: POSTGRES_DB
+            value: postgresdb
+        ports:
+        - containerPort: 80
+          name: result

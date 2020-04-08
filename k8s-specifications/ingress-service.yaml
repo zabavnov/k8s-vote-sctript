@@ -1,0 +1,48 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+  labels:
+    #app.kubernetes.io/name: vote
+    #app.kubernetes.io/part-of: vote
+  #namespace: vote
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    #nginx.ingress.kubernetes.io/rewrite-target: /
+    #nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    #nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/add-base-url : "true"
+    #nginx.ingress.kubernetes.io/configuration-snippet: |
+     #alias /;
+  # location / {root /};
+    # UPDATE THIS LINE ABOVE
+spec:
+  rules:
+    - http:
+        paths:
+          # - path: /?(.*)
+          - path: /
+          # UPDATE THIS LINE ABOVE
+            backend:
+              serviceName: vote
+              servicePort: 80
+          - path: /static/stylesheets/style.css
+          # UPDATE THIS LINE ABOVE
+            backend:
+              serviceName: vote
+              servicePort: 80
+          - path: /result
+          # UPDATE THIS LINE AB?(.*)OVE
+            backend:
+              serviceName: result
+              servicePort: 80
+          - path: /results/?(.*)
+          # UPDATE THIS LINE AB?(.*)OVE
+            backend:
+              serviceName: result
+              servicePort: 80
+          #- path: /stylesheets/?(.*)
+          # UPDATE THIS LINE AB?(.*)OVE
+          #  backend:
+          #    serviceName: result
+          #    servicePort: 80
