@@ -35,7 +35,7 @@ spec:
               serviceName: vote
               servicePort: 80
     - host: result.s48.su
-       http:
+      http:
          paths:
            # - path: /?(.*)
            - path: /?(.*)
