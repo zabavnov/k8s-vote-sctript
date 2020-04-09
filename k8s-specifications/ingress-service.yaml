@@ -30,7 +30,7 @@ spec:
       http:
         paths:
           # - path: /?(.*)
-          - path: /?(.*)
+          - path: /
           # UPDATE THIS LINE ABOVE
             backend:
               serviceName: vote
@@ -39,7 +39,7 @@ spec:
       http:
          paths:
            # - path: /?(.*)
-           - path: /?(.*)
+           - path: /
            # UPDATE THIS LINE ABOVE
              backend:
                serviceName: result
