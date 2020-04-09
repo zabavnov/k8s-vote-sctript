@@ -8,7 +8,7 @@ ls
 # Create a self signed Certificate, valid for 10yrs with the 'signing' option set
  openssl req -x509 -new -nodes -key ca.key -subj "/CN=Zabavnov" -days 365 -reqexts v3_req -extensions v3_ca -out ca.crt
 
-cat car.crt
+cat ca.crt
 
 openssl genrsa -out vote.key 2048
 
