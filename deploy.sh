@@ -1,14 +1,10 @@
 # Generate a CA private key
  openssl genrsa -out ca.key 2048
 
- cat ca.key
-
-ls
 
 # Create a self signed Certificate, valid for 10yrs with the 'signing' option set
 openssl req -x509 -new -nodes -key ca.key -subj "/CN=Zabavnov" -days 365 -reqexts v3_req -extensions v3_ca -out ca.crt
 
-cat ca.crt
 
 openssl genrsa -out vote.key 2048
 
@@ -24,5 +20,7 @@ kubectl create secret tls tls-key-pair \
    --cert=combined-certificates.crt \
    --key=ca.key \
    --namespace=default
+
+cat combined-certificates.crt
 
 kubectl apply -f k8s-specifications
