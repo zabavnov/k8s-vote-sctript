@@ -23,7 +23,7 @@ spec:
       - ingress.example.com
       - vote.s48.su
       - result.s48.su
-      secretName: tls-key-pair-old
+      secretName: tls-key-pair
   rules:
     - host: vote.s48.su
       http:

@@ -20,7 +20,7 @@ spec:
     - vote.s48.su
     - vote2.s48.su
     - result.s48.su
-  secretName: tls-key-pair
+  secretName: tls-key-pair-old
   organization:
   - Zabavnov
   commonName: ingress.example.com

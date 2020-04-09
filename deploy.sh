@@ -16,9 +16,9 @@ openssl req -new -sha256 -key vote.key -subj "/C=US/ST=CA/O=Test/CN=vote.s48.su"
 
 openssl x509 -req -in vote.csr -CA ca.crt -CAkey ca.key -out vote.crt -days 500 -sha256
 
-cat vote.crt ca.crt  > combined-certificates.crt
+cat vote.crt ca.crt > combined-certificates.crt
 
-kubectl delete secret tls tls-key-pair 
+kubectl delete secret tls tls-key-pair
 
 kubectl create secret tls tls-key-pair \
    --cert=combined-certificates.crt \
