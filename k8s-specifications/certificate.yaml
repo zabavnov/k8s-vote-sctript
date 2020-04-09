@@ -6,10 +6,10 @@ spec:
   secretName: sandbox2-ca-tls
   commonName: ingress.example.com
   organization:
-    - Example CA
+    - Zabavnov Root
   isCA: true
   issuerRef:
-    name: test-selfsigned
+    name: ca-key-pair
 ---
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
