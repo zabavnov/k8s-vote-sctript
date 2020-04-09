@@ -6,12 +6,13 @@
 openssl req -x509 -new -nodes -key ca.key -subj "/O=Zabavnov/CN=vote.s48.su" -days 365 -reqexts v3_req -extensions v3_ca -out ca
 
 
-
 openssl genrsa -out vote.key 2048
+
+echo "[SAN]subjectAltName=DNS:result.s48.su" >> config.ssl
 
 openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=vote.s48.su" -out vote.csr -extensions config.ssl
 
-echo "[SAN]subjectAltName=DNS:result.s48.su" >> config.ssl
+
 
 openssl x509 -req -in vote.csr -CA ca -CAkey ca.key -CAcreateserial -out vote.crt -days 500 -sha256
 
