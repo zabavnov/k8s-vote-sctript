@@ -25,7 +25,7 @@ spec:
       secretName: selfsigned-cert-tls
   rules:
       - http:
-        paths:
+         paths:
           # - path: /?(.*)
           - path: /
           # UPDATE THIS LINE ABOVE
