@@ -22,10 +22,12 @@ spec:
   tls:
     - hosts:
       - ingress.example.com
+      - vote.s48.su
       secretName: selfsigned-cert-tls
   rules:
-      - http:
-         paths:
+    - host: vote.s48.su
+      http:
+        paths:
           # - path: /?(.*)
           - path: /
           # UPDATE THIS LINE ABOVE
