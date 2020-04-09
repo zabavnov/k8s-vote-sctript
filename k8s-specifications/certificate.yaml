@@ -1,14 +1,10 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name:k8-vote-tls
+  name: selfsigned-cert
 spec:
-  secretName: k8-votes
+  dnsNames:
+    - example.com
+  secretName: selfsigned-cert-tls
   issuerRef:
      name: letsencrypt-prod
-     kind: ClusterIssuer
-  commonName: 192.168.232.90
-  acme:
-    config:
-      - http01:
-        ingressClass: nginx
