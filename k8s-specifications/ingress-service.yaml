@@ -13,10 +13,16 @@ metadata:
     #nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/add-base-url : "true"
     #nginx.ingress.kubernetes.io/configuration-snippet: |
+    #cert-manager.io/cluster-issuer: "test-selfsigned"
+    cert-manager.io/issuer: "test-selfsigned"
      #alias /;
   # location / {root /};
     # UPDATE THIS LINE ABOVE
 spec:
+  tls:
+    - hosts:
+      - localhost
+      secretName: selfsigned-cert-tls
   rules:
     - http:
         paths:
