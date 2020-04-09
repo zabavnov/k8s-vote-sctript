@@ -13,7 +13,7 @@ openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=vote.s48.su" -out v
 
 echo "[SAN]subjectAltName=DNS:result.s48.su" >> config.ssl
 
-openssl x509 -req -in vote.csr -CA ca -CAkey ca.key -CAcreateserial -out vote.crt -days 500 -sha256 -extfile config.ssl
+openssl x509 -req -in vote.csr -CA ca -CAkey ca.key -CAcreateserial -out vote.crt -days 500 -sha256 -extensions config.ssl
 
 
 cat vote.crt \
