@@ -22,7 +22,7 @@ spec:
     - vote.s48.su
     - vote2.s48.su
     - result.s48.su
-  secretName: selfsigned-cert-tls
+  secretName: tls-key-pair
   organization:
   - Zabavnov
   commonName: ingress.example.com
