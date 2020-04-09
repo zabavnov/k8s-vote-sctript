@@ -21,9 +21,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - 192.168.232.90
+      - ingress.example.com
       secretName: selfsigned-cert-tls
   rules:
+    - host: ingress.example.com
     - http:
         paths:
           # - path: /?(.*)
