@@ -19,9 +19,10 @@ metadata:
 spec:
   usages:
     - server auth
-    - client auth  
+    - client auth
   dnsNames:
     - example.com
+    - ingress.example.com
   secretName: selfsigned-cert-tls
   commonName: test.cluster.local
   isCA: false
