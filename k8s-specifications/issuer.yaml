@@ -11,4 +11,4 @@ metadata:
   name: sandbox2-ca-issuer
 spec:
   ca:
-    secretName: selfsigned-cert-tls
+    secretName: sandbox2-ca-tls
