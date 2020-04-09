@@ -25,7 +25,7 @@ spec:
       secretName: selfsigned-cert-tls
   rules:
     - host: ingress.example.com
-    - http:
+      http:
         paths:
           # - path: /?(.*)
           - path: /
