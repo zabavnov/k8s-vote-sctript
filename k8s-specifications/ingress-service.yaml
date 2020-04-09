@@ -14,7 +14,7 @@ metadata:
     nginx.ingress.kubernetes.io/add-base-url : "true"
     #nginx.ingress.kubernetes.io/configuration-snippet: |
     #cert-manager.io/cluster-issuer: "test-selfsigned"
-    cert-manager.io/issuer: "test-selfsigned"
+    cert-manager.io/issuer: "sandbox2-ca-issuer"
      #alias /;
   # location / {root /};
     # UPDATE THIS LINE ABOVE
