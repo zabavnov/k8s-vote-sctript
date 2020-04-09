@@ -21,7 +21,7 @@ metadata:
 spec:
   tls:
     - hosts:
-      - localhost
+      - 192.168.232.90
       secretName: selfsigned-cert-tls
   rules:
     - http:
