@@ -27,4 +27,4 @@ spec:
   commonName: test.cluster.local
   isCA: false
   issuerRef:
-     name: test-selfsigned
+     name: sandbox2-ca-issuer
