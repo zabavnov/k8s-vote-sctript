@@ -1,14 +1,6 @@
 apiVersion: cert-manager.io/v1alpha2
-kind: ClusterIssuer
+kind: Issuer
 metadata:
-  name: letsencrypt-prod
+  name: test-selfsigned
 spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: 'igor503@ya.ru'
-    privateKeySecretRef:
-      name: letsencrypt-prod
-    solvers:
-      - http01:
-          ingress:
-            class: nginx
+  selfSigned: {}
