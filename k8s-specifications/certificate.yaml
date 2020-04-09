@@ -1,10 +1,29 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
+  name: sandbox2-ca
+spec:
+  secretName: sandbox2-ca-tls
+  commonName: sandbox2.svc.cluster.local
+  usages:
+    - server auth
+    - client auth
+  isCA: true
+  issuerRef:
+    name: test-selfsigned
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
   name: selfsigned-cert
 spec:
+  usages:
+    - server auth
+    - client auth  
   dnsNames:
     - example.com
   secretName: selfsigned-cert-tls
+  commonName: test.cluster.local
+  isCA: false
   issuerRef:
      name: test-selfsigned
