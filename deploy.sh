@@ -3,13 +3,13 @@
 
 
 # Create a self signed Certificate, valid for 10yrs with the 'signing' option set
-openssl req -x509 -new -nodes -key ca.key -subj "/CN=Zabavnov" -days 365 -reqexts v3_req -extensions v3_ca -out ca
+openssl req -x509 -new -nodes -key ca.key -subj "/O=Zabavnov/CN=vote.s48.su" -days 365 -reqexts v3_req -extensions v3_ca -out ca
 
 
 
 openssl genrsa -out vote.key 2048
 
-openssl req -new -sha256 -key vote.key -subj "/C=US/ST=CA/O=Test/CN=vote.s48.su" -out vote.csr
+openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=vote.s48.su" -out vote.csr -addext "subjectAltName = DNS:result.s48.su"
 
 openssl x509 -req -in vote.csr -CA ca -CAkey ca.key -CAcreateserial -out vote.crt -days 500 -sha256
 
