@@ -15,6 +15,7 @@ metadata:
     #nginx.ingress.kubernetes.io/configuration-snippet: |
     #cert-manager.io/cluster-issuer: "test-selfsigned"
     cert-manager.io/issuer: "sandbox2-ca-issuer"
+    nginx.ingress.kubernetes.io/auth-tls-secret: "sandbox2-ca-tls"
      #alias /;
   # location / {root /};
     # UPDATE THIS LINE ABOVE
