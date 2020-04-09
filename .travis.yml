@@ -17,6 +17,9 @@ before_install:
   - gcloud config set project votes-k8s
   - gcloud config set compute/zone europe-west3-c
   - gcloud container clusters get-credentials vote
+
+
+script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 deploy:
