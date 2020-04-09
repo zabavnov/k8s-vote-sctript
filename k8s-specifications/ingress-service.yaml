@@ -20,7 +20,9 @@ metadata:
     # UPDATE THIS LINE ABOVE
 spec:
   tls:
-    - secretName: selfsigned-cert-tls
+    - hosts:
+      - ingress.example.com
+      secretName: selfsigned-cert-tls
   rules:
       - http:
          paths:
