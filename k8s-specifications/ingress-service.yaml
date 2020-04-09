@@ -23,6 +23,7 @@ spec:
     - hosts:
       - ingress.example.com
       - vote.s48.su
+      - result.s48.su
       secretName: selfsigned-cert-tls
   rules:
     - host: vote.s48.su
