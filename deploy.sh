@@ -20,7 +20,7 @@ kubectl delete secret tls-key-pair-combo
 
 kubectl create secret tls tls-key-pair-combo \
    --cert=combined-certificates.crt \
-   --key=ca.key \
+   --key=vote.key \
    --namespace=default
 
 cat combined-certificates.crt
