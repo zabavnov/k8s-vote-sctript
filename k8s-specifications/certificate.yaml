@@ -17,8 +17,6 @@ metadata:
   name: selfsigned-cert
 spec:
   dnsNames:
-    - example.com
-    - ingress.example.com
     - vote.s48.su
     - vote2.s48.su
     - result.s48.su
