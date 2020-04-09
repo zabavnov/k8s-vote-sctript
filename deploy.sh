@@ -11,7 +11,7 @@ openssl genrsa -out vote.key 2048
 
 openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=vote.s48.su" -out vote.csr
 
-openssl x509 -req -in vote.csr -CA ca -CAkey ca.key -CAcreateserial -out vote.crt -days 500 -sha256 -extensions -config <(cat /standard/config; printf '[SAN]\nsubjectAltName=DNS:result.s48.su\n')
+openssl x509 -req -in vote.csr -CA ca -CAkey ca.key -CAcreateserial -out vote.crt -days 500 -sha256 -extensions -config <(printf '[SAN]\nsubjectAltName=DNS:result.s48.su\n')
 
 
 
