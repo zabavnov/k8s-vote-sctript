@@ -28,4 +28,12 @@ kubectl create secret tls tls-key-pair-combo \
 
 cat combined-certificates.crt
 
+#curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
+#chmod 700 get_helm.sh
+#./get_helm.sh
+#helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+#helm install my-nginx stable/nginx-ingress --set rbac.create=true
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/cloud-generic.yaml
+
 kubectl apply -f k8s-specifications
