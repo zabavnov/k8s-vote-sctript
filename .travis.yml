@@ -15,8 +15,9 @@ before_install:
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project votes-k8s
+  - gcloud container clusters create vote
   - gcloud config set compute/zone europe-west3-c
-  - gcloud container clusters get-credentials vote2
+  - gcloud container clusters get-credentials vote
 
 
 script:
