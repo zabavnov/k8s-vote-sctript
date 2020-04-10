@@ -8,9 +8,8 @@ openssl req -x509 -new -nodes -key ca.key -subj "/O=Zabavnov/CN=vote.s48.su" -da
 
 openssl genrsa -out vote.key 2048
 
-echo "[SAN]subjectAltName=DNS:result.s48.su" >> config.ssl
 
-openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=vote.s48.su" -out vote.csr -config config.ssl
+openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=*.s48.su" -out vote.csr 
 
 
 
