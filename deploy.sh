@@ -34,6 +34,7 @@ cat combined-certificates.crt
 #helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 #helm install my-nginx stable/nginx-ingress --set rbac.create=true
 
+kubectl create namespace ingress-nginx
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/cloud-generic.yaml
 
 kubectl apply -f k8s-specifications
