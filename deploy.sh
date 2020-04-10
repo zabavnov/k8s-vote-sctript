@@ -9,7 +9,7 @@ openssl req -x509 -new -nodes -key ca.key -subj "/O=Zabavnov/CN=vote.s48.su" -da
 openssl genrsa -out vote.key 2048
 
 
-openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=*.s48.su" -out vote.csr 
+openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=*.s48.su" -out vote.csr
 
 
 
