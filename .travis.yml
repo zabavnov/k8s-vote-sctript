@@ -16,7 +16,7 @@ before_install:
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project votes-k8s
   - gcloud config set compute/zone europe-west3-c
-  - gcloud container clusters get-credentials vote
+  - gcloud container clusters get-credentials vote2
 
 
 script:
