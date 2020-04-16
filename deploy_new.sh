@@ -1,19 +1,24 @@
+#!/bin/bash
 
-CLOUDSDK_CORE_DISABLE_PROMPTS=1
+export CLOUDSDK_CORE_DISABLE_PROMPTS=1;
+export PATH="/usr/lib/google-cloud-sdk/bin:$PATH";
 
-mkdir deploytocloud
-cd deploytocloud
-#openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in service-account.json.enc -out service-account.json -d
-curl https://sdk.cloud.google.com | bash > /dev/null;
-source $HOME/google-cloud-sdk/path.bash.inc
+read -p "Enter instance name: " name
+# openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in service-account.json.enc -out service-account.json -d
+curl https://sdk.cloud.google.com > install.sh
+bash install.sh --disable-prompts --install-dir=/usr/lib/
 gcloud components update kubectl
 gcloud auth activate-service-account --key-file ../service-account.json
 gcloud config set project votes-k8s
+if [[ "$1" = "--delete" ]]
+then
+gcloud container clusters delete $name --zone europe-west3-c
+fi
+gcloud container clusters create $name --zone europe-west3-c
 gcloud config set compute/zone europe-west3-c
 gcloud container clusters get-credentials vote
-Generate a CA private key
 openssl genrsa -out ca.key 2048
-# Create a self signed Certificate, valid for 10yrs with the 'signing' option set
+# Create a self signed Certificate
 openssl req -x509 -new -nodes -key ca.key -subj "/O=Zabavnov/CN=vote.s48.su" -days 365 -reqexts v3_req -extensions v3_ca -out ca
 openssl genrsa -out vote.key 2048
 openssl req -new -sha256 -key vote.key -subj "/O=Zabavnov/CN=*.s48.su" -out vote.csr
